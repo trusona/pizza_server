@@ -7,8 +7,7 @@ Requirements
 ============
 
 Please build a client that will cover these stories, you can use any technology
-you feel comfortable with.  Feel free to look at the tests to see exactly how
-you can use the API.
+you feel comfortable with.
   * As a builder, I should be able to list existing Pizzas
   * As a builder, I should be able to create a new Pizza
   * As a builder, I should be able to create toppings that can be added to a Pizza
@@ -83,6 +82,13 @@ POST /pizzas/:pizza_id/toppings
 GET /pizzas/:pizza_id/toppings
 ```
 
+#### Examples:
+```
+POST /toppings, {topping: {name: "Pepperoni"}}
+```
+```
+GET  /toppings
+```
 
 
 
