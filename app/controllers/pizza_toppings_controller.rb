@@ -1,10 +1,8 @@
 class PizzaToppingsController < ApplicationController
   def index
-    Commands::GetPizza.run(name: params[:pizza_id]) do |pizza|
-      @pizza = pizza
+    Commands::GetPizzaToppings.run(name: params[:pizza_id]) do |pizza_toppings|
+      render json: pizza_toppings.map(&:to_json)
     end
-
-    render json: @pizza.pizza_toppings
   end
 
   def create

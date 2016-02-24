@@ -13,7 +13,6 @@ you feel comfortable with.
   * As a builder, I should be able to create toppings that can be added to a Pizza
   * As a builder, I should be able to list the toppings I can to add to a Pizza
   * As a builder, I should be able to add a topping to a pizza
-  * As a builder, I should be able to see the cost of a pizza change as I add ingredients
 
 Resources
 =========

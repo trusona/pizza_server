@@ -8,4 +8,8 @@ class PizzaTopping < ActiveRecord::Base
   def name
     topping.name
   end
+
+  def to_json
+    attributes.merge({name: name})
+  end
 end
