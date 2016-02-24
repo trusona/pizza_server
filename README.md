@@ -17,7 +17,7 @@ you feel comfortable with.
 Resources
 =========
 Use these resources to build your client.  The server with these resources can
-be accessed at *https://someappname.heroku.com*
+be accessed at *https://pizzaserver.herokuapp.com/pizzas*
 
 Pizza
 -----
