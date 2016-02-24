@@ -14,11 +14,14 @@ RSpec.describe "Toppings Controller", :type => :request do
   end
 
   describe "/pizzas/x/toppings" do
+    before do
+      post "/pizzas/Belleboche/toppings",
+        pizza_id:   pizza.id,
+        topping_id: topping.id
+    end
+
     describe "GET" do
       it 'lists pizza toppings' do
-        post "/pizzas/Belleboche/toppings",
-          pizza_id:   pizza.id,
-          topping_id: topping.id
         get "/pizzas/Belleboche/toppings"
         expect(JSON.parse(response.body).map{|topping| topping["name"]}).to include("Pepperoni")
       end
@@ -26,10 +29,6 @@ RSpec.describe "Toppings Controller", :type => :request do
 
     describe "POST" do
       it 'adds a topping to a pizza', :focus do
-        post "/pizzas/Belleboche/toppings",
-          pizza_id:   pizza.id,
-          topping_id: topping.id
-
         Commands::GetPizza.run(name: "Belleboche") do |pizza|
           expect(pizza.pizza_toppings.map(&:name)).to include("Pepperoni")
         end

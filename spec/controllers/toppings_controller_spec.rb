@@ -3,9 +3,10 @@ require "rails_helper"
 RSpec.describe "Toppings Controller", :type => :request do
   describe "/toppings" do
     describe "GET" do
-      it do
+      before do
         post "/toppings", {topping: {name: "Pepperoni"}}
-
+      end
+      it do
         get "/toppings"
         expect(JSON.parse(response.body).first["name"]).to be == "Pepperoni"
       end
