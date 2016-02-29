@@ -1,8 +1,12 @@
 module Commands
   class GetPizza
     class << self
-      def run name:
-        yield(Pizza.find_by_name(name))
+      def run id:
+        if block_given?
+          yield(Pizza.find(id))
+        else
+          Pizza.find(id)
+        end
       end
     end
   end

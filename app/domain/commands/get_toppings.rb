@@ -2,7 +2,11 @@ module Commands
   class GetToppings
     class << self
       def run
-        yield( Topping.all )
+        if block_given?
+          yield( Topping.all )
+        else
+          Topping.all
+        end
       end
     end
   end

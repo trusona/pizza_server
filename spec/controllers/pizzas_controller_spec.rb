@@ -1,28 +1,23 @@
 require "rails_helper"
 
-RSpec.describe "Pizzas Controller", :type => :request do
-  describe "/pizzas" do
-    describe "GET" do
-      it 'lists pizzas' do
-        post "/pizzas", {"pizza" => {"name" => "Belleboche", "description" => "Pepperoni, Mushroom, Sausage"}}
-        get "/pizzas"
-        expect(JSON.parse(response.body).first["name"]).to be == "Belleboche"
-        expect(JSON.parse(response.body).first["description"]).to be == "Pepperoni, Mushroom, Sausage"
-      end
+RSpec.describe "Pizzas API", :type => :request do
+  let(:pizza_attributes) { {
+    "name" => "Belleboche",
+    "description" => "Pepperoni, Mushroom, Sausage" } }
+
+  describe "GET /pizzas" do
+    let!(:pizza) { Commands::CreatePizza.run(pizza: pizza_attributes) }
+    before { get "/pizzas" }
+
+    it 'Lists pizzas' do
+      expect(response.body).to be == [pizza].to_json
     end
+  end
 
-    describe "POST" do
-      it 'creates a pizza' do
-        Commands::GetPizzas.run do |pizzas|
-          expect(pizzas.count).to be == 0
-        end
-
-        post "/pizzas", {"pizza" => {"name" => "Belleboche"}}
-
-        Commands::GetPizzas.run do |pizzas|
-          expect(pizzas.count).to be == 1
-        end
-      end
+  describe "POST /pizzas" do
+    before { post "/pizzas", { "pizza" => pizza_attributes } }
+    it 'Creates a pizza' do
+      expect(Commands::GetPizzas.run.count).to be == 1
     end
   end
 end

@@ -87,11 +87,12 @@ GET /pizzas/:pizza_id/toppings
 ```
 
 #### Examples:
+
 ```
-POST /toppings, {topping: {name: "Pepperoni"}}
+POST /pizzas/:pizza_id/toppings", {pizza_id: 1, topping_id: 1}
 ```
 ```
-GET  /toppings
+GET  /pizzas/:pizza_id/toppings
 ```
 
 

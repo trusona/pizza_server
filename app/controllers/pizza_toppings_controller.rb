@@ -1,6 +1,6 @@
 class PizzaToppingsController < ApplicationController
   def index
-    Commands::GetPizzaToppings.run(name: params[:pizza_id]) do |pizza_toppings|
+    Commands::GetPizzaToppings.run(id: params[:pizza_id]) do |pizza_toppings|
       render json: pizza_toppings.map(&:to_json)
     end
   end

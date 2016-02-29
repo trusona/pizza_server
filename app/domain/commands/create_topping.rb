@@ -2,7 +2,11 @@ module Commands
   class CreateTopping
     class << self
       def run(topping:)
-        yield(Topping.create!(topping))
+        if block_given?
+          yield(Topping.create!(topping))
+        else
+          Topping.create!(topping)
+        end
       end
     end
   end

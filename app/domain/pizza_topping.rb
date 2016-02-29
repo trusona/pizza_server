@@ -9,7 +9,11 @@ class PizzaTopping < ActiveRecord::Base
     topping.name
   end
 
-  def to_json
+  def to_h
     attributes.merge({name: name})
+  end
+
+  def to_json
+    to_h
   end
 end
