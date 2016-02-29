@@ -1,18 +1,23 @@
 # Pizza Builder Client
 
 We want to build a pizza from a list of ingredients.  The Pizza will have a name,
-a description, and toppings.
+a description, and toppings.  
+
 
 Requirements
 ============
 
 Please build a client that will cover these stories, you can use any technology
 you feel comfortable with.
+
   * As a builder, I should be able to list existing Pizzas
   * As a builder, I should be able to create a new Pizza
   * As a builder, I should be able to create toppings that can be added to a Pizza
   * As a builder, I should be able to list the toppings I can to add to a Pizza
   * As a builder, I should be able to add a topping to a pizza
+
+**Once you have a client built.  Deploy it some where and send the url to use it to
+[dev@tanga.com](dev@tanga.com).**
 
 Resources
 =========
