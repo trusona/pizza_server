@@ -24,7 +24,15 @@ Resources
 Use these resources to build your client.  The server with these resources can
 be accessed at *https://pizzaserver.herokuapp.com/*
 
-Example curl command to create a pizza:
+* GET  toppings               # List toppings
+* POST toppings               # Create a topping
+* GET  pizzas                 # List pizzas
+* POST pizzas                 # Create a pizza
+* GET  pizzas/:id/toppings    # List toppings associated with a pizza
+* POST pizzas/:id/toppings    # Add a topping to an existing pizza
+
+
+*Example curl command to create a pizza:*
 ```
 curl -H "Content-Type: application/json" -H "Accept: application/json" https://pizzaserver.herokuapp.com/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
 ```
@@ -32,18 +40,6 @@ curl -H "Content-Type: application/json" -H "Accept: application/json" https://p
 Pizza
 -----
 A Pizza is a baked, round piece of dough covered with sauce and toppings
-
-#### Pizza Endpoints:
-
-*List existing Pizzas*
-```
-GET /pizzas
-```
-
-*Create a new pizza*
-```
-POST /pizzas
-```
 
 #### Examples:
 ```
@@ -57,17 +53,6 @@ Topping
 -------
 Raw ingredients that can be added to a pizza
 
-#### Topping Endpoints:
-*List existing toppings*
-```
-GET /toppings
-```
-
-*Create a new topping*
-```
-POST /toppings
-```
-
 #### Examples:
 ```
 POST /toppings, {topping: {name: "Pepperoni"}}
@@ -80,17 +65,6 @@ Pizza Toppings
 --------------
 Pizza Toppings are Toppings that have been added to a Pizza
 
-#### Pizza Topping Endpoints:
-*Add a topping to a Pizza*
-```
-POST /pizzas/:pizza_id/toppings
-```
-
-*List toppings for a pizza*
-```
-GET /pizzas/:pizza_id/toppings
-```
-
 #### Examples:
 
 ```
@@ -99,6 +73,3 @@ POST /pizzas/:pizza_id/toppings, {topping_id: 1}
 ```
 GET  /pizzas/:pizza_id/toppings
 ```
-
-
-
