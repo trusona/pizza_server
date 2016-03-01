@@ -24,13 +24,14 @@ Resources
 Use these resources to build your client.  The server with these resources can
 be accessed at *https://pizzaserver.herokuapp.com/*
 
-* GET  toppings               # List toppings
-* POST toppings               # Create a topping
-* GET  pizzas                 # List pizzas
-* POST pizzas                 # Create a pizza
-* GET  pizzas/:id/toppings    # List toppings associated with a pizza
-* POST pizzas/:id/toppings    # Add a topping to an existing pizza
-
+```
+GET  toppings               # List toppings
+POST toppings               # Create a topping
+GET  pizzas                 # List pizzas
+POST pizzas                 # Create a pizza
+GET  pizzas/:id/toppings    # List toppings associated with a pizza
+POST pizzas/:id/toppings    # Add a topping to an existing pizza
+```
 
 *Example curl command to create a pizza:*
 ```
