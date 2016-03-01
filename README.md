@@ -22,7 +22,7 @@ you feel comfortable with.
 Resources
 =========
 Use these resources to build your client.  The server with these resources can
-be accessed at *https://pizzaserver.herokuapp.com/pizzas*
+be accessed at *https://pizzaserver.herokuapp.com/*
 
 Example curl command to create a pizza:
 ```
