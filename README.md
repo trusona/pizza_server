@@ -1,7 +1,7 @@
 # Pizza Builder Client
 
 We want to build a pizza from a list of ingredients.  The Pizza will have a name,
-a description, and toppings.  
+a description, and toppings.
 
 
 Requirements
@@ -23,6 +23,11 @@ Resources
 =========
 Use these resources to build your client.  The server with these resources can
 be accessed at *https://pizzaserver.herokuapp.com/pizzas*
+
+Example curl command to create a pizza:
+```
+curl -H "Content-Type: application/json" -H "Accept: application/json" https://pizzaserver.herokuapp.com/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
+```
 
 Pizza
 -----
