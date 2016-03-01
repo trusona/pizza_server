@@ -15,6 +15,7 @@ you feel comfortable with.
   * As a builder, I should be able to create toppings that can be added to a Pizza
   * As a builder, I should be able to list the toppings I can to add to a Pizza
   * As a builder, I should be able to add a topping to a pizza
+  * As a builder, I should be able to list toppings on a pizza
 
 **Once you have a client built.  Deploy it some where and send the url to use it to
 [dev@tanga.com](dev@tanga.com).**
