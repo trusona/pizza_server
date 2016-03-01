@@ -6,7 +6,7 @@ class PizzasController < ApplicationController
   end
 
   def create
-    Commands::CreatePizza.run(pizza: pizza_params) do |pizza|
+    Commands::CreatePizza.new.run(pizza: pizza_params) do |pizza|
       render json: pizza.to_json
     end
   end

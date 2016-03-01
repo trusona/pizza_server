@@ -6,7 +6,7 @@ RSpec.describe "Pizzas API", :type => :request do
     "description" => "Pepperoni, Mushroom, Sausage" } }
 
   describe "GET /pizzas" do
-    let!(:pizza) { Commands::CreatePizza.run(pizza: pizza_attributes) }
+    let!(:pizza) { Commands::CreatePizza.new.run(pizza: pizza_attributes) }
     before { get "/pizzas" }
 
     it 'Lists pizzas' do
