@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Pizzas API", :type => :request do
+RSpec.describe "Pizzas", :type => :request do
   let(:desc)             { "Pepperoni, Mushroom, Sausage" }
   let(:pizza_attributes) { {"name" => "Belleboche", "description" =>  desc} }
 

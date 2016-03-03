@@ -6,7 +6,7 @@ class ToppingsController < ApplicationController
   end
 
   def create
-    Commands::CreateTopping.run(topping: topping_params) do |topping|
+    Commands::CreateTopping.new.run(topping: topping_params) do |topping|
       render json: topping
     end
   end

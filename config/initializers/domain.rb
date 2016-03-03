@@ -6,14 +6,16 @@ module DomainFun
     end
   end
 
-  def run_with_domain_fun pizza:
+  def run_with_domain_fun **args
     if block_given?
-      yield run_without_domain_fun(pizza: pizza)
+      yield run_without_domain_fun(args)
     else
-      run_without_domain_fun(pizza: pizza)
+      run_without_domain_fun(args)
     end
   end
 end
 
-
-Commands::CreatePizza.send :include, DomainFun
+Commands::CreatePizza.send        :include, DomainFun
+Commands::CreatePizzaTopping.send :include, DomainFun
+Commands::CreateTopping.send      :include, DomainFun
+Commands::GetPizza.send           :include, DomainFun

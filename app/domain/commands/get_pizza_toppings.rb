@@ -3,9 +3,9 @@ module Commands
     class << self
       def run id:
         if block_given?
-          yield(Commands::GetPizza.run(id: id).pizza_toppings)
+          yield(Commands::GetPizza.new.run(id: id).pizza_toppings)
         else
-          Commands::GetPizza.run(id: id).pizza_toppings
+          Commands::GetPizza.new.run(id: id).pizza_toppings
         end
       end
     end

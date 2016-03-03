@@ -6,7 +6,7 @@ class PizzaToppingsController < ApplicationController
   end
 
   def create
-    Commands::CreatePizzaTopping.run(
+    Commands::CreatePizzaTopping.new.run(
       pizza_id:      pizza_params[:pizza_id],
       topping_id:    pizza_params[:topping_id]
     ) do |topping|
