@@ -14,7 +14,7 @@ RSpec.describe "Pizza Toppings", :type => :request do
       it 'lists pizza toppings' do
         post "/pizzas/#{pizza.id}/toppings", topping_id: topping.id
         get "/pizzas/#{pizza.id}/toppings"
-        expect(response.body).to be == Commands::GetPizzaToppings.run(id: pizza.id).map(&:to_json).to_json
+        expect(response.body).to be == Commands::GetPizzaToppings.new.run(id: pizza.id).map(&:to_json).to_json
       end
     end
 

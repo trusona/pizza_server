@@ -1,11 +1,11 @@
 module Commands
   class GetPizzas
-    class << self
-      def run
-        records = Repositories::Pizza.all
-        yield records  if block_given?
-        return records
-      end
+    def initialize(repo: Repositories::Pizza)
+      @repo = repo
+    end
+
+    def run
+      @repo.all
     end
   end
 end

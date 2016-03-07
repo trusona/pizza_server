@@ -1,6 +1,6 @@
 class ToppingsController < ApplicationController
   def index
-    Commands::GetToppings.run do |toppings|
+    Commands::GetToppings.new.run do |toppings|
       render json: toppings
     end
   end

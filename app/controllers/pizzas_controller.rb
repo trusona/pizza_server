@@ -1,6 +1,6 @@
 class PizzasController < ApplicationController
   def index
-    Commands::GetPizzas.run do |pizzas|
+    Commands::GetPizzas.new.run do |pizzas|
       render json: pizzas
     end
   end

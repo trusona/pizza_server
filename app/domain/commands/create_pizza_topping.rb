@@ -8,7 +8,7 @@ module Commands
     def run pizza_id:, topping_id:
       result = {
         object: @repo.new(pizza_id: pizza_id, topping_id: topping_id),
-        errors: @validator.run(topping_ids: Commands::GetPizzaToppings.run(id: pizza_id).map(&:topping_id), topping_id: topping_id) }
+        errors: @validator.run(topping_ids: Commands::GetPizzaToppings.new.run(id: pizza_id).map(&:topping_id), topping_id: topping_id) }
 
       if result[:errors].present?
         return result

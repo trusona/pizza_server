@@ -17,7 +17,7 @@ RSpec.describe "Pizzas", :type => :request do
   describe "POST /pizzas" do
     it 'Creates a pizza' do
       post "/pizzas", { "pizza" => pizza_attributes }
-      expect(Commands::GetPizzas.run.count).to be == 1
+      expect(Commands::GetPizzas.new.run.count).to be == 1
     end
   end
 end

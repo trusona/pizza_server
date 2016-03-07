@@ -8,9 +8,17 @@ module DomainFun
 
   def run_with_domain_fun **args
     if block_given?
-      yield run_without_domain_fun(args)
+      if(args.present?)
+        yield run_without_domain_fun(args)
+      else
+        yield run_without_domain_fun
+      end
     else
-      run_without_domain_fun(args)
+      if(args.present?)
+        run_without_domain_fun(args)
+      else
+        run_without_domain_fun
+      end
     end
   end
 end
@@ -19,3 +27,6 @@ Commands::CreatePizza.send        :include, DomainFun
 Commands::CreatePizzaTopping.send :include, DomainFun
 Commands::CreateTopping.send      :include, DomainFun
 Commands::GetPizza.send           :include, DomainFun
+Commands::GetPizzaToppings.send   :include, DomainFun
+Commands::GetPizzas.send          :include, DomainFun
+Commands::GetToppings.send        :include, DomainFun

@@ -1,13 +1,11 @@
 module Commands
   class GetToppings
-    class << self
-      def run
-        if block_given?
-          yield( Repositories::Topping.all )
-        else
-          Repositories::Topping.all
-        end
-      end
+    def initialize(repo: Repositories::Topping)
+      @repo = repo
+    end
+
+    def run
+      @repo.all
     end
   end
 end

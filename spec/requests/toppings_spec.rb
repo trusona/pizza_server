@@ -4,7 +4,7 @@ RSpec.describe "Toppings", :type => :request do
   describe "/toppings" do
 
     describe "GET" do
-      let(:toppings) { Commands::GetToppings.run }
+      let(:toppings) { Commands::GetToppings.new.run }
 
       before do
         post "/toppings", {topping: {name: "Pepperoni"}}
@@ -19,7 +19,7 @@ RSpec.describe "Toppings", :type => :request do
     describe "POST" do
       it "Creates a topping" do
         post "/toppings", {topping: {name: "Pepperoni"}}
-        expect(Commands::GetToppings.run.count).to be == 1
+        expect(Commands::GetToppings.new.run.count).to be == 1
       end
     end
   end

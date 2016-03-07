@@ -7,7 +7,7 @@ describe Commands::CreatePizzaTopping do
       pizza   = Commands::CreateTopping.new.run(topping: {name: "pepperoni"})
       topping = Commands::CreatePizza.new.run(pizza: {name: "belleboche", description: "pepperoni, mushroom, sausage"})
       result  = Commands::CreatePizzaTopping.new.run(pizza_id: pizza.id, topping_id: topping.id)
-      expect(Commands::GetPizzaToppings.run(id: pizza.id)).to be == [result[:object]]
+      expect(Commands::GetPizzaToppings.new.run(id: pizza.id)).to be == [result[:object]]
     end
 
     it 'should not allow duplicate toppings on a pizza' do
