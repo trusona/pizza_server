@@ -1,7 +1,10 @@
 module Commands
   class CreateTopping
+    def initialize(repo: Repositories::Topping)
+      @repo = repo
+    end
     def run(topping:)
-      Topping.create!(topping)
+      @repo.create!(topping)
     end
   end
 end

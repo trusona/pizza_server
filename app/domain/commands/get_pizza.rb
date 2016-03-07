@@ -1,7 +1,11 @@
 module Commands
   class GetPizza
+    def initialize(repo: Repositories::Pizza)
+      @repo = repo
+    end
+
     def run id:
-      Pizza.find(id)
+      @repo.find(id)
     end
   end
 end

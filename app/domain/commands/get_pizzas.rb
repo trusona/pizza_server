@@ -2,7 +2,7 @@ module Commands
   class GetPizzas
     class << self
       def run
-        records = Pizza.all
+        records = Repositories::Pizza.all
         yield records  if block_given?
         return records
       end

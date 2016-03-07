@@ -1,8 +1,8 @@
 module Commands
   class CreatePizzaTopping
-    def initialize
+    def initialize(repo: Repositories::PizzaTopping)
       @validator = Validators::CreatePizzaTopping.new
-      @repo      = PizzaTopping
+      @repo      = repo
     end
 
     def run pizza_id:, topping_id:

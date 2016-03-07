@@ -3,9 +3,9 @@ module Commands
     class << self
       def run
         if block_given?
-          yield( Topping.all )
+          yield( Repositories::Topping.all )
         else
-          Topping.all
+          Repositories::Topping.all
         end
       end
     end
