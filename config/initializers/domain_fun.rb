@@ -8,5 +8,3 @@
 ].each do |klass|
   klass.send :include, DomainFun::YieldOrReturn
 end
-
-
