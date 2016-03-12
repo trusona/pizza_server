@@ -1,25 +1,32 @@
 require "rails_helper"
 
-describe Commands::CreatePizzaTopping do
-  subject { described_class.new }
-  describe '#run' do
-    it 'should create a pizza topping' do
-      pizza   = Commands::CreateTopping.new.run(topping: {name: "pepperoni"})
-      topping = Commands::CreatePizza.new.run(pizza: {name: "belleboche", description: "pepperoni, mushroom, sausage"})
-      result  = Commands::CreatePizzaTopping.new.run(pizza_id: pizza.id, topping_id: topping.id)
-      expect(Commands::GetPizzaToppings.new.run(id: pizza.id)).to be == [result[:object]]
+module Commands
+  describe CreatePizzaTopping do
+    subject { described_class.new }
+    let(:pizza) do
+      CreatePizza.new.run(pizza: {
+        name: "belleboche", description: "Pizza Description"
+      })
+    end
+    let(:topping)  { CreateTopping.new.run(topping: {name: "pepperoni"}) }
+    let(:toppings) { GetPizzaToppings.new.run(id: pizza.id) }
+    let(:duplicate) do
+      CreatePizzaTopping.new.run(pizza_id: pizza.id, topping_id: topping.id)
+    end
+    let(:error_message) { "This pizza topping already exists" }
+
+    subject! do
+      CreatePizzaTopping.new.run(pizza_id: pizza.id, topping_id: topping.id)
     end
 
-    it 'should not allow duplicate toppings on a pizza' do
-      pizza   = Commands::CreateTopping.new.run(topping: {name: "pepperoni"})
-      topping = Commands::CreatePizza.new.run(
-        pizza: {
-          name:        "belleboche",
-          description: "pepperoni, mushroom, sausage"})
+    describe '#run' do
+      it 'should create a pizza topping' do
+        expect(toppings).to be == [subject[:object]]
+      end
 
-      Commands::CreatePizzaTopping.new.run(pizza_id: pizza.id, topping_id: topping.id)
-      result = Commands::CreatePizzaTopping.new.run(pizza_id: pizza.id, topping_id: topping.id)
-      expect(result [:errors]).to be == {:pizza_topping=>["This pizza topping already exists"]}
+      it 'should not allow duplicate toppings on a pizza' do
+        expect(duplicate[:errors]).to be == { pizza_topping: [error_message] }
+      end
     end
   end
 end
