@@ -2,20 +2,30 @@ module Repositories
   class Pizza
     @pizzas = {}
 
-    def self.create!(attributes)
-      @pizzas[next_id] = attributes.merge("id" => next_id )
+    def self.pizzas
+      @pizzas
     end
 
-    def self.next_id
-      @pizzas.keys.length + 1
+    def self.pizzas= value
+      @pizzas = value
     end
 
-    def self.all
-      @pizzas.values
+    def create! attributes
+      self.class.pizzas[next_id] = attributes.merge("id" => next_id )
     end
 
-    def self.destroy_all
-      @pizzas = {}
+    def all
+      self.class.pizzas.values
+    end
+
+    def destroy_all
+      self.class.pizzas = {}
+    end
+
+    private
+
+    def next_id
+      self.class.pizzas.keys.length + 1
     end
   end
 end

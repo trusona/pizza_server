@@ -53,9 +53,6 @@ Raw ingredients that can be added to a pizza
 
 #### Examples:
 ```
-POST /toppings, {topping: {name: "Pepperoni"}}
-```
-```
 GET  /toppings
 ```
 
@@ -64,10 +61,6 @@ Pizza Toppings
 Pizza Toppings are Toppings that have been added to a Pizza
 
 #### Examples:
-
 ```
 POST /pizzas/:pizza_id/toppings, {topping_id: 1}
-```
-```
-GET  /pizzas/:pizza_id/toppings
 ```

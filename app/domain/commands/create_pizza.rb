@@ -1,7 +1,7 @@
 module Commands
   class CreatePizza
     def initialize(repo: Repositories::Pizza)
-      @repo = repo
+      @repo = repo.new
     end
 
     def run pizza:
