@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
   def commands
     @commands ||= {
-      get_pizzas:     Commands::GetPizzas.new(repo: Repositories::Couch::Pizza),
-      create_pizza:   Commands::CreatePizza.new(repo: Repositories::Couch::Pizza),
+      get_pizzas:     Commands::GetPizzas.new(repo: Repositories::AR::Pizza),
+      create_pizza:   Commands::CreatePizza.new(repo: Repositories::AR::Pizza),
       get_toppings:   Commands::GetToppings.new(repo: Repositories::AR::Topping),
       create_topping: Commands::CreateTopping.new(repo: Repositories::AR::Topping),
     }

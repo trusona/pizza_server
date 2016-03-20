@@ -9,7 +9,7 @@ module Repositories
         @row = row
       end
 
-      def create!(attributes)
+      def create(attributes)
         Row.create!(attributes).attributes
       end
 

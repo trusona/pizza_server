@@ -5,7 +5,7 @@ module Commands
     end
 
     def run id:
-      @repo.find id
+      @repo.read id
     end
   end
 end

@@ -14,7 +14,7 @@ module Repositories
         @document = document
       end
 
-      def create!(attributes)
+      def create(attributes)
         document = Document.new attributes
         CouchPotato.database.save_document! document
         document
