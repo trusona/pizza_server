@@ -3,15 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
+  private
+
   def commands
     @commands ||= {
-      getPizzas:   Commands::GetPizzas.new(repo: pizza_repository),
-      createPizza: Commands::CreatePizza.new(repo: pizza_repository)
+      get_pizzas:      Commands::GetPizzas.new(repo: Repositories::AR::Pizza),
+      create_pizza:    Commands::CreatePizza.new(repo: Repositories::AR::Pizza),
+      get_toppings:    Commands::GetToppings.new(repo: Repositories::AR::Topping),
+      create_topping: Commands::CreateTopping.new(repo: Repositories::AR::Topping),
     }
-  end
-
-  def pizza_repository
-    Repositories::AR::Pizza
   end
 
 end

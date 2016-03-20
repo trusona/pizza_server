@@ -41,12 +41,21 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)
   end
 
+  config.before(:all) do
+    # Repositories::Pizza.new.destroy_all
+    # Repositories::Topping.new.destroy_all
+  end
+
+  config.after(:all) do
+    # Repositories::Pizza.new.destroy_all
+    # Repositories::Topping.new.destroy_all
+  end
+
   config.around(:each) do |example|
-    Repositories::Pizza.new.destroy_all
     DatabaseCleaner.cleaning do
       example.run
     end

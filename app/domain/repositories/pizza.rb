@@ -11,7 +11,7 @@ module Repositories
     end
 
     def create! attributes
-      self.class.pizzas[next_id] = attributes.merge("id" => next_id )
+      self.class.pizzas[next_id] = attributes.merge("id" => next_id)
     end
 
     def all

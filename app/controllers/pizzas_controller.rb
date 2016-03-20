@@ -1,12 +1,12 @@
 class PizzasController < ApplicationController
   def index
-    commands[:getPizzas].run do |pizzas|
+    commands[:get_pizzas].run do |pizzas|
       render json: pizzas
     end
   end
 
   def create
-    commands[:createPizza].run(pizza: pizza_params) do |pizza|
+    commands[:create_pizza].run(pizza: pizza_params) do |pizza|
       render json: pizza
     end
   end

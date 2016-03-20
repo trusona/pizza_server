@@ -1,7 +1,7 @@
 module Commands
   class GetToppings
     def initialize(repo: Repositories::Topping)
-      @repo = repo
+      @repo = repo.new
     end
 
     def run
