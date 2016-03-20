@@ -56,6 +56,9 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
+    Repositories::Pizza.new.destroy_all
+    Repositories::Topping.new.destroy_all
+
     DatabaseCleaner.cleaning do
       example.run
     end

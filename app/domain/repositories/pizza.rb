@@ -22,6 +22,10 @@ module Repositories
       self.class.pizzas = {}
     end
 
+    def find(id)
+      self.class.pizzas[id]
+    end
+
     private
 
     def next_id
