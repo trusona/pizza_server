@@ -1,35 +1,35 @@
 module Repositories
   class Pizza
-    @pizzas = {}
+    @collection = {}
 
-    def self.pizzas
-      @pizzas
+    def self.collection
+      @collection
     end
 
-    def self.pizzas= value
-      @pizzas = value
+    def self.collection= value
+      @collection = value
     end
 
     def create! attributes
-      self.class.pizzas[next_id] = attributes.merge("id" => next_id)
+      Pizza.collection[next_id] = attributes.merge("id" => next_id)
     end
 
     def all
-      self.class.pizzas.values
+      Pizza.collection.values
     end
 
     def destroy_all
-      self.class.pizzas = {}
+      Pizza.collection = {}
     end
 
     def find(id)
-      self.class.pizzas[id]
+      Pizza.collection[id]
     end
 
     private
 
     def next_id
-      self.class.pizzas.keys.length + 1
+      Pizza.collection.keys.length + 1
     end
   end
 end

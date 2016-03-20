@@ -5,7 +5,7 @@ module Commands
     end
 
     def run topping:
-      @repo.create!(topping)
+      @repo.create! topping
     end
   end
 end
