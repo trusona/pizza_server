@@ -11,26 +11,29 @@ module Repositories
     end
 
     def create!(attributes)
-      Topping.collection[next_id] = attributes.merge("id" => next_id)
+      klass.collection[next_id] = attributes.merge("id" => next_id)
     end
 
     def all
-      Topping.collection.values
+      klass.collection.values
     end
 
     def destroy_all
-      Topping.collection = {}
+      klass.collection = {}
     end
 
     def find(id)
-      Topping.collection[id]
+      klass.collection[id]
     end
-
 
     private
 
+    def klass
+      self.class
+    end
+
     def next_id
-      Topping.collection.keys.length + 1
+      klass.collection.keys.length + 1
     end
   end
 end

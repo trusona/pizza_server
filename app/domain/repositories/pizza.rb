@@ -11,25 +11,29 @@ module Repositories
     end
 
     def create! attributes
-      Pizza.collection[next_id] = attributes.merge("id" => next_id)
+      klass.collection[next_id] = attributes.merge("id" => next_id)
     end
 
     def all
-      Pizza.collection.values
+      klass.collection.values
     end
 
     def destroy_all
-      Pizza.collection = {}
+      klass.collection = {}
     end
 
     def find(id)
-      Pizza.collection[id]
+      klass.collection[id]
     end
 
     private
 
+    def klass
+      self.class
+    end
+
     def next_id
-      Pizza.collection.keys.length + 1
+      klass.collection.keys.length + 1
     end
   end
 end
