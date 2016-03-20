@@ -1,0 +1,13 @@
+default: &default
+  split_design_documents_per_view: true # optional
+  # default_language: :erlang # optional
+
+development:
+  <<: *default
+  database: pizza_development
+test:
+  <<: *default
+  database: pizza_test
+production:
+  <<: *default
+  database: <%= ENV['DB_NAME'] %>
