@@ -17,11 +17,24 @@ module Repositories
       def create(attributes)
         document = Document.new attributes
         CouchPotato.database.save_document! document
-        document
+        domain_field_mapping(document)
       end
 
       def all
-        CouchPotato.database.view Document.all
+        CouchPotato.database.view(Document.all).map do |document|
+          domain_field_mapping(document)
+        end
+      end
+
+      private
+
+      def domain_field_mapping(document)
+        {
+          description: document.description,
+          name:        document.name,
+          topping:     document.toppings,
+          id:          document._id
+        }
       end
     end
   end

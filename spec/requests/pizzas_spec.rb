@@ -16,9 +16,8 @@ RSpec.describe "Pizzas", :type => :request do
 
   describe "POST /pizzas" do
     it 'Creates a pizza with a new id' do
-      post "/pizzas", pizza: attributes
-      get "/pizzas"
-      expect(JSON.parse(response.body)).to be == [attributes.merge('id' => 1)]
+      pizza = post("/pizzas", pizza: attributes)
+      expect(JSON.parse(response.body).keys).to include 'id'
     end
   end
 end

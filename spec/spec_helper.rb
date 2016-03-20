@@ -41,8 +41,11 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner[:couch_potato].strategy = :truncation
+    DatabaseCleaner[:couch_potato].clean_with(:truncation)
+
+    DatabaseCleaner[:active_record].strategy = :truncation
+    DatabaseCleaner[:active_record].clean_with(:truncation)
   end
 
   config.before(:all) do
@@ -59,7 +62,7 @@ RSpec.configure do |config|
     Repositories::Pizza.new.reset
     Repositories::Topping.new.reset
 
-    DatabaseCleaner.cleaning do
+    DatabaseCleaner[:active_record].cleaning do
       example.run
     end
   end
