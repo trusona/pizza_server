@@ -5,7 +5,7 @@ module Commands
     end
 
     def run pizza:
-      @repo.create!(pizza).attributes
+      @repo.create!(pizza)
     end
   end
 end

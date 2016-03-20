@@ -5,7 +5,6 @@ module Commands
     end
 
     def run id:
-      binding.pry
       @repo.find(id)
     end
   end
