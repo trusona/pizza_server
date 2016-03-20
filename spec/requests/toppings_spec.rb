@@ -7,7 +7,7 @@ RSpec.describe "Toppings", :type => :request do
       it do
         post "/toppings", {topping: {name: "Pepperoni"}}
         get "/toppings"
-        expect(JSON.parse(response.body)).to be == [{"name"=>"Pepperoni", "id"=>1}]
+        expect(JSON.parse(response.body)).to be == [{ "name"=>"Pepperoni", "id"=>1 }]
       end
     end
 
@@ -15,7 +15,7 @@ RSpec.describe "Toppings", :type => :request do
       it "Creates a topping" do
         post "/toppings", {topping: {name: "Pepperoni"}}
         get "/toppings"
-        expect(JSON.parse(response.body)).to be == [{"id"=>1, "name"=>"Pepperoni"}]
+        expect(JSON.parse(response.body)).to be == [{ "id"=>1, "name"=>"Pepperoni" }]
       end
     end
   end

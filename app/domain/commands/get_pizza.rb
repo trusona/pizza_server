@@ -1,6 +1,6 @@
 module Commands
   class GetPizza
-    def initialize(repo: Repositories::Pizza)
+    def initialize repo: Repositories::Pizza
       @repo = repo
     end
 

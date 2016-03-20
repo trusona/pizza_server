@@ -1,35 +1,24 @@
 require "rails_helper"
 
 RSpec.describe "Pizzas", :type => :request do
-  let(:desc)             { "Pepperoni, Mushroom, Sausage" }
-  let(:pizza_attributes) { {
-    "name" => "Belleboche",
-    "description" => desc,
-    "toppings" => ['a', 'b', 'c']} }
+  let(:attributes) { {
+    "name"        => "Belleboche",
+    "description" => "Pepperoni, Mushroom, Sausage",
+    "toppings"    => ['a', 'b', 'c']} }
 
   describe "GET /pizzas" do
     it 'Lists pizzas' do
-      post "/pizzas", { "pizza" => pizza_attributes }
+      post "/pizzas", { "pizza" => attributes }
       get "/pizzas"
-      expect(JSON.parse(response.body)).to be == [{
-        "id"          => 1,
-        "name"        => "Belleboche",
-        "description" => "Pepperoni, Mushroom, Sausage",
-        "toppings"    => ['a', 'b', 'c']
-      }]
+      expect(JSON.parse(response.body).count).to be == 1
     end
   end
 
   describe "POST /pizzas" do
-    it 'Creates a pizza' do
-      post "/pizzas", { "pizza" => pizza_attributes }
+    it 'Creates a pizza with a new id' do
+      post "/pizzas", { "pizza" => attributes }
       get "/pizzas"
-      expect(JSON.parse(response.body)).to be == [{
-        "id"          => 1,
-        "name"        => "Belleboche",
-        "description" => "Pepperoni, Mushroom, Sausage",
-        "toppings"    => ['a', 'b', 'c']
-      }]
+      expect(JSON.parse(response.body)).to be == [attributes.merge('id' => 1)]
     end
   end
 end
