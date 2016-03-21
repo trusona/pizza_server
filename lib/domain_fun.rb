@@ -1,15 +1,10 @@
-# Controller
-# Command Result {result:, errors:, success}
-# Validator
-# Domain Repository
-#
-# init/domain_fun
-# Swap databases
-# AR Repository
-# CouchDB Repository
-
 # Do this:
+#   DomainFun.config do |config|
+#     config.load_commands :create_pizza, repository: Repositories::AR::Pizza
+#   end
+#
 #   DomainFun[:create_pizza].run(pizza: pizza_params)
+#
 # Instead of this:
 #   Commands::CreatePizza.new(Repositories::AR::CreatePizza).run(pizza: pizza_params)
 

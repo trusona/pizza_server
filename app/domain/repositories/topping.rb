@@ -1,4 +1,4 @@
 module Repositories
-  class Topping < InMemory
+  class Topping < Base
   end
 end

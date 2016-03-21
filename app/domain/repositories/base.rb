@@ -1,6 +1,6 @@
 module Repositories
   # Domain repositories have a CRUD+L (list) interfcace.
-  class InMemory
+  class Base
     def create attributes
       klass.collection[next_id] = attributes.merge("id" => next_id)
     end

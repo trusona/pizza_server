@@ -1,4 +1,4 @@
 module Repositories
-  class Pizza < InMemory
+  class Pizza < Base
   end
 end
