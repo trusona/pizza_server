@@ -6,11 +6,9 @@ module Commands
     end
 
     def run pizza:
-      {
-        result:  @repo.create(pizza),
+      { result:  @repo.create(pizza),
         errors:  errors(pizza),
-        success: errors(pizza).empty?
-      }
+        success: errors(pizza).empty? }
     end
 
     private
