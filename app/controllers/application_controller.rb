@@ -13,5 +13,4 @@ class ApplicationController < ActionController::Base
       create_topping: Commands::CreateTopping.new(repo: Repositories::AR::Topping),
     }
   end
-
 end
