@@ -1,16 +1,15 @@
 module DomainFun
   class Config
-    attr_accessor :repository
-
+    attr_accessor :commands
     def load_commands(*commands, options)
       commands.each do |command|
         klass(command).send :include, DomainFun::YieldOrReturn
+        @commands[command] = options
       end
     end
 
-    def driver_name= value
-      @repository_driver = RepositoryDriver.new(value)
-      @repository        = @repository_driver.repository
+    def initialize
+      @commands = {}
     end
 
     private

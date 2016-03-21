@@ -5,11 +5,11 @@ module Repositories
       klass.collection[next_id] = attributes.merge("id" => next_id)
     end
 
-    def read(id)
+    def read id
       klass.collection[id]
     end
 
-    def update(id, attributes)
+    def update id, attributes
       # NOT IMPLEMENTED
     end
 

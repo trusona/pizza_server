@@ -1,3 +1,8 @@
+# Do this:
+#   DomainFun[:create_pizza].run(pizza: pizza_params)
+# Instead of this:
+#   Commands::CreatePizza.new(Repositories::AR::CreatePizza).run(pizza: pizza_params)
+
 module DomainFun
   @config = Config.new
 
@@ -5,9 +10,8 @@ module DomainFun
     yield @config
   end
 
-  # DomainFun[:create_pizza].run
   def self.[] value
-    command(value).new(repo: @config.repository)
+    command(value).new(repo: @config.commands[value][:repository])
   end
 
   def self.command(value)

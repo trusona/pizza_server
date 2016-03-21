@@ -5,7 +5,7 @@ module Validators
     attr_accessor :name
     validates_presence_of :name
 
-    def run(attributes)
+    def run attributes
       v = self.class.new
       v.name = attributes['name']
       v.valid?

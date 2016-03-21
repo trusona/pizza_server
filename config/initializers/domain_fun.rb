@@ -4,6 +4,4 @@ DomainFun.config do |config|
 
   config.load_commands *PIZZA_COMMANDS, repository: Repositories::AR::Pizza
   config.load_commands *TOPPING_COMMANDS, repository: Repositories::AR::Topping
-
-  config.driver_name= 'AR'
 end
