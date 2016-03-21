@@ -1,3 +1,13 @@
+# Controller
+# Command Result {result:, errors:, success}
+# Validator
+# Domain Repository
+#
+# init/domain_fun
+# Swap databases
+# AR Repository
+# CouchDB Repository
+
 # Do this:
 #   DomainFun[:create_pizza].run(pizza: pizza_params)
 # Instead of this:
