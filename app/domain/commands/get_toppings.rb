@@ -5,7 +5,7 @@ module Commands
     end
 
     def run
-      @repo.all
+      @repo.all.map &:name
     end
   end
 end

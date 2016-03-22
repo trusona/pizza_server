@@ -7,8 +7,11 @@ class PizzasController < ApplicationController
 
   def create
     DomainFun[:create_pizza].run(pizza: pizza_params) do |pizza|
+      DomainFun[:create_toppings_from_pizza].run(pizza: pizza[:result])
       render json: pizza[:result]
     end
+
+
   end
 
   private

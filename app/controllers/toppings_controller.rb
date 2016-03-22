@@ -14,6 +14,6 @@ class ToppingsController < ApplicationController
   private
 
   def topping_params
-    params.require(:topping).permit!
+    params.require(:topping)
   end
 end

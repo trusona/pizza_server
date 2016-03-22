@@ -5,8 +5,17 @@ module Commands
     end
 
     def run pizza:
-      pizza['toppings'].each do |topping|
+      { success: true,
+        errors: [],
+        result: toppings(pizza)}
+    end
+
+    private
+
+    def toppings(pizza)
+      pizza['toppings'].map do |topping|
         @repo.create name: topping
+        topping
       end
     end
   end

@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "Toppings", :type => :request do
-  let(:attributes) { {"name" => "Pepperoni"} }
+  let(:topping) { "Pepperoni" }
 
   describe "GET /toppings" do
     it 'Lists toppings' do
-      post "/toppings", topping: attributes
+      post "/toppings", topping: topping
       get "/toppings"
       expect(JSON.parse(response.body).count).to be == 1
     end
@@ -13,9 +13,9 @@ RSpec.describe "Toppings", :type => :request do
 
   describe "POST /toppings" do
     it "Creates a topping with a new id" do
-      post "/toppings", topping: attributes
+      post "/toppings", topping: topping
       get "/toppings"
-      expect(JSON.parse(response.body)).to be == [attributes.merge('id' => 1)]
+      expect(JSON.parse(response.body)).to be == [topping]
     end
   end
 end
