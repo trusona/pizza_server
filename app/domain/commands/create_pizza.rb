@@ -5,7 +5,7 @@ module Commands
       @validator = validator.new
     end
 
-    def run pizza:
+    def call pizza:
       { result:  @repo.create(pizza),
         errors:  errors(pizza),
         success: errors(pizza).empty? }
@@ -14,7 +14,7 @@ module Commands
     private
 
     def errors pizza
-      @validator.run(pizza)
+      @validator.call(pizza)
     end
   end
 end

@@ -1,13 +1,13 @@
 class PizzasController < ApplicationController
   def index
-    DomainFun[:get_pizzas].run do |pizzas|
+    DomainFun[:get_pizzas].call do |pizzas|
       render json: pizzas
     end
   end
 
   def create
-    DomainFun[:create_pizza].run(pizza: pizza_params) do |pizza|
-      DomainFun[:create_toppings_from_pizza].run(pizza: pizza[:result])
+    DomainFun[:create_pizza].call(pizza: pizza_params) do |pizza|
+      DomainFun[:create_toppings_from_pizza].call(pizza: pizza[:result])
       render json: pizza[:result]
     end
 

@@ -4,7 +4,7 @@ module Commands
       @repo = repo.new
     end
 
-    def run pizza:
+    def call pizza:
       { success: true,
         errors: [],
         result: toppings(pizza)}

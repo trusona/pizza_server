@@ -3,10 +3,10 @@
 #     config.load_commands :create_pizza, repository: Repositories::AR::Pizza
 #   end
 #
-#   DomainFun[:create_pizza].run(pizza: pizza_params)
+#   DomainFun[:create_pizza].call(pizza: pizza_params)
 #
 # Instead of this:
-#   Commands::CreatePizza.new(Repositories::AR::CreatePizza).run(pizza: pizza_params)
+#   Commands::CreatePizza.new(Repositories::AR::CreatePizza).call(pizza: pizza_params)
 
 module DomainFun
   @config = Config.new

@@ -4,7 +4,7 @@ module Commands
       @repo = repo.new
     end
 
-    def run
+    def call
       @repo.all
     end
   end
