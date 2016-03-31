@@ -5,9 +5,7 @@ module Commands
     end
 
     def call pizza:
-      { success: true,
-        errors: [],
-        result: toppings(pizza)}
+      Result.new(success: true, errors: [], result: toppings(pizza))
     end
 
     private

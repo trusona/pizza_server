@@ -10,7 +10,7 @@ RSpec.describe Commands::GetPizza do
     end
 
     it 'creates a pizza with an id' do
-      pizza = Commands::CreatePizza.new.call(pizza: attributes)[:result]
+      pizza = Commands::CreatePizza.new.call(pizza: attributes).result
       expect(Commands::GetPizza.new.call(id: pizza["id"]))
         .to be == attributes.merge("id" => 1)
     end

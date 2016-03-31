@@ -6,12 +6,12 @@ class PizzasController < ApplicationController
   end
 
   def create
-    DomainFun[:create_pizza].call(pizza: pizza_params) do |pizza|
-      DomainFun[:create_toppings_from_pizza].call(pizza: pizza[:result])
-      render json: pizza[:result]
+    DomainFun[:create_pizza].call(pizza: pizza_params) do |result|
+      result.success do |pizza|
+        DomainFun[:create_toppings_from_pizza].call(pizza: pizza)
+        render json: pizza
+      end
     end
-
-
   end
 
   private
