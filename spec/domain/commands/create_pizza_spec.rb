@@ -12,7 +12,7 @@ RSpec.describe Commands::CreatePizza do
     let(:pizza) { subject.call(pizza: attributes) }
 
     it 'creates a pizza with an id' do
-      expect(pizza.result).to be == attributes.merge("id" => 1)
+      expect(pizza).to be == attributes.merge("id" => 1)
     end
 
     describe do
@@ -22,8 +22,9 @@ RSpec.describe Commands::CreatePizza do
       end
 
       it 'blows up if a validation breaks' do
-        expect(subject.call(pizza: attributes_with_missing_name).errors)
-          .to be == { :name => ["can't be blank"] }
+        expect { subject.call(pizza: attributes_with_missing_name) }.to raise_error(Commands::ValidationError) { |error|
+          expect(error.errors).to be == { :name => ["can't be blank"] }
+        }
       end
     end
   end
