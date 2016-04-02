@@ -1,4 +1,4 @@
-module DomainFun
+module Cmd
   module YieldOrReturn
     def self.included(base)
       base.class_eval { alias_method_chain :call, :feature }

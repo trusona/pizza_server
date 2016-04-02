@@ -1,14 +1,14 @@
 # Do this:
-#   DomainFun.config do |config|
+#   Cmd.config do |config|
 #     config.load_commands :create_pizza, repository: Repositories::AR::Pizza
 #   end
 #
-#   DomainFun[:create_pizza].call(pizza: pizza_params)
+#   Cmd[:create_pizza].call(pizza: pizza_params)
 #
 # Instead of this:
 #   Commands::CreatePizza.new(Repositories::AR::CreatePizza).call(pizza: pizza_params)
 
-module DomainFun
+module Cmd
   @config = Config.new
 
   def self.config

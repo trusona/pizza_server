@@ -1,4 +1,4 @@
-module DomainFun
+module Cmd
   class Result
     attr_accessor :result, :errors, :success
     def initialize(result:, errors:, success:)
