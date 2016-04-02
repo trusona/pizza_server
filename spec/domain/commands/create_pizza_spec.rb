@@ -22,7 +22,7 @@ RSpec.describe Commands::CreatePizza do
       end
 
       it 'blows up if a validation breaks' do
-        expect { subject.call(pizza: attributes_with_missing_name) }.to raise_error(Commands::ValidationError) { |error|
+        expect { subject.call(pizza: attributes_with_missing_name) }.to raise_error(Validators::ValidationError) { |error|
           expect(error.errors).to be == { :name => ["can't be blank"] }
         }
       end

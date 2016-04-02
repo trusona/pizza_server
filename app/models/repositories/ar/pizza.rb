@@ -5,12 +5,16 @@ module Repositories
         self.table_name = "pizzas"
       end
 
-      def initialize(row=Row)
+      def initialize row = Row
         @row = row
       end
 
-      def create(attributes)
+      def create attributes
         Row.create!(attributes).attributes
+      end
+
+      def read id
+        Row.find id
       end
 
       def all

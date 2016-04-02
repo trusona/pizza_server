@@ -16,6 +16,14 @@ class PizzasController < ApplicationController
     end
   end
 
+  def show
+    Cmd[:get_pizza].call(id: params[:id]) do |result|
+      result.success do |pizza|
+        render json: pizza
+      end
+    end
+  end
+
   private
 
   def pizza_params

@@ -5,11 +5,11 @@ module Repositories
         self.table_name = "toppings"
       end
 
-      def initialize(row=Row)
+      def initialize row=Row
         @row = row
       end
 
-      def create(attributes)
+      def create attributes
         Row.create(attributes).attributes
       end
 

@@ -10,11 +10,11 @@ module Repositories
         view :all, :key => :id
       end
 
-      def initialize(document=Document)
+      def initialize document = Document
         @document = document
       end
 
-      def create(attributes)
+      def create attributes
         document = Document.new attributes
         CouchPotato.database.save_document! document
         domain_field_mapping(document)
@@ -28,7 +28,7 @@ module Repositories
 
       private
 
-      def domain_field_mapping(document)
+      def domain_field_mapping document
         {
           description: document.description,
           name:        document.name,

@@ -1,11 +1,4 @@
 module Commands
-  class ValidationError < RuntimeError
-    attr_accessor :errors
-    def initialize(errors)
-      @errors = errors
-    end
-  end
-
   class CreatePizza
     def initialize repo: Repositories::Pizza, validator: Validators::CreatePizza
       @repo      = repo.new
@@ -13,7 +6,7 @@ module Commands
     end
 
     def call pizza:
-      raise Commands::ValidationError.new(errors(pizza)) if !errors(pizza).empty?
+      raise Validators::ValidationError.new(errors(pizza)) if !errors(pizza).empty?
       @repo.create(pizza)
     end
 
