@@ -6,8 +6,11 @@ module Commands
     end
 
     def call pizza:
-      raise Validators::ValidationError.new(errors(pizza)) if !errors(pizza).empty?
-      @repo.create(pizza)
+      if errors(pizza).empty?
+        @repo.create(pizza)
+      else
+        raise Validators::ValidationError.new(errors(pizza))
+      end
     end
 
     private
