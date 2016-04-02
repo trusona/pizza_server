@@ -1,7 +1,7 @@
 module Commands
   class GetPizza
     def initialize repo: Repositories::Pizza
-      @repo = repo.new
+      @repo = repo
     end
 
     def call id:

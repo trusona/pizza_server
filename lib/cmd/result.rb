@@ -8,7 +8,13 @@ module Cmd
     end
 
     def success
+      return unless errors.empty?
       yield result
+    end
+
+    def failure
+      return if errors.empty?
+      yield errors
     end
   end
 end

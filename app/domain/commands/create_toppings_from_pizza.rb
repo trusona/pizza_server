@@ -1,7 +1,7 @@
 module Commands
   class CreateToppingsFromPizza
     def initialize repo: Repositories::Topping
-      @repo = repo.new
+      @repo = repo
     end
 
     def call pizza:

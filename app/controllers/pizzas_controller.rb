@@ -13,6 +13,9 @@ class PizzasController < ApplicationController
         Cmd[:create_toppings_from_pizza].call(pizza: pizza)
         render json: pizza
       end
+      result.failure do |errors|
+        render errors, status: 500
+      end
     end
   end
 

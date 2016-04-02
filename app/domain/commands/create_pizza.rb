@@ -1,7 +1,7 @@
 module Commands
   class CreatePizza
     def initialize repo: Repositories::Pizza, validator: Validators::CreatePizza
-      @repo      = repo.new
+      @repo      = repo
       @validator = validator.new
     end
 

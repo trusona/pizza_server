@@ -12,7 +12,9 @@ RSpec.describe "Pizzas", :type => :request do
       get "/pizzas"
       expect(JSON.parse(response.body).count).to be == 1
     end
+  end
 
+  describe "POST /pizzas" do
     it 'creates toppings' do
       post "/pizzas", pizza: attributes
       get "/toppings"
