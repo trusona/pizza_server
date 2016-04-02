@@ -5,11 +5,12 @@ module DomainFun
     end
 
     def call_with_feature **args
-      block_given? ? yield(result(args)) : result(args)
+      r = result(args)
+      block_given? ? yield(Result.new(result: r, errors: [], success: true)) : r
     end
 
     def result(args)
-      return call_without_feature(args) if (args.present?)
+      return call_without_feature(args) if args.present?
       call_without_feature
     end
   end

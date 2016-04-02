@@ -18,9 +18,6 @@ RSpec.describe "Pizzas", :type => :request do
       get "/toppings"
       expect(JSON.parse(response.body)).to be == ["a", "b", "c"]
     end
-
-
-
   end
 
   describe "POST /pizzas" do

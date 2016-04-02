@@ -13,7 +13,7 @@ module Commands
     end
 
     def call pizza:
-      raise Commands::ValidationError.new(errors(pizza)) unless errors(pizza).empty?
+      raise Commands::ValidationError.new(errors(pizza)) if !errors(pizza).empty?
       @repo.create(pizza)
     end
 
