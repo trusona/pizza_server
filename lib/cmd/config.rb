@@ -1,9 +1,10 @@
 module Cmd
   class Config
     attr_accessor :commands
-    def load_commands(*commands, options)
+
+    def use_repository(*commands, options)
       commands.each do |command|
-        klass(command).send :include, Cmd::YieldOrReturn
+        klass(command).send :include, Cmd::Mixins::YieldResultObject
         @commands[command] = options
       end
     end
