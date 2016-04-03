@@ -4,7 +4,6 @@ module Cmd
 
     def use_repository(*commands, options)
       commands.each do |command|
-        klass(command).send :include, Cmd::Mixins::YieldResultObject
         @commands[command] = options
       end
     end

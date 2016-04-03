@@ -15,11 +15,7 @@ module Cmd
     yield @config
   end
 
-  def self.[] value
-    command(value).new(repo: @config.commands[value][:repository])
-  end
-
-  def self.command(value)
-    "Commands::#{value.to_s.camelize}".constantize
+  def self.[] command_name
+    Command.new(name: command_name, config: @config)
   end
 end
