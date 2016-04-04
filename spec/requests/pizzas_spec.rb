@@ -20,6 +20,17 @@ RSpec.describe "Pizzas", :type => :request do
       get "/toppings"
       expect(JSON.parse(response.body)).to be == ["a", "b", "c"]
     end
+
+    context 'with errors' do
+      let(:attributes_no_name) {
+        { "description" => "Pepperoni, Mushroom, Sausage",
+          "toppings"    => ['a', 'b', 'c']} }
+
+      it 'Returns a 500' do
+        post "/pizzas", pizza: attributes_no_name
+        expect(response.status).to be == 500
+      end
+    end
   end
 
   describe "GET /pizzas/:id" do

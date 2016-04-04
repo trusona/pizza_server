@@ -1,32 +1,41 @@
 module Cmd
   class Command
     def initialize(name:, config:)
-      @name = name
+      @name   = name
       @config = config
     end
 
     def call(**args)
-      result = Result.new(result: result(args), errors: [], success: true)
-      yield result if block_given?
-      result
+      if block_given?
+        yield result args
+      else
+        result args
+      end
     end
 
     private
 
     def result(**args)
-      if args.present?
-        domain_command.call args
-      else
-        domain_command.call if !args.present?
+      errors = []
+
+      begin
+        command_result = configured_command.call(args)
+      rescue => e
+        errors = e.errors
+        command_result = {}
       end
 
+      Result.new result:  command_result,
+                 errors:  errors,
+                 success: errors.empty?
     end
 
-    def domain_command
-      command_name(@name).new(repo: @config.commands[@name][:repository])
+    def configured_command
+      command_constant(@name).new(
+        repo: @config.commands[@name][:repository])
     end
 
-    def command_name(value)
+    def command_constant(value)
       "Commands::#{value.to_s.camelize}".constantize
     end
   end

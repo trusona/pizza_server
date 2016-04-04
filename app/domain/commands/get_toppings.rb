@@ -4,7 +4,7 @@ module Commands
       @repo = repo
     end
 
-    def call
+    def call **args
       @repo.all.map &:name
     end
   end

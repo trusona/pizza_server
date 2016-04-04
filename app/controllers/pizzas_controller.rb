@@ -14,7 +14,7 @@ class PizzasController < ApplicationController
         render json: pizza
       end
       result.failure do |errors|
-        render errors, status: 500
+        render json: errors, status: 500
       end
     end
   end
