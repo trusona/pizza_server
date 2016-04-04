@@ -15,7 +15,7 @@ RSpec.describe Commands::CreatePizza do
       expect(pizza).to be == attributes.merge("id" => 1)
     end
 
-    describe do
+    describe 'Errors' do
       let(:attributes_with_missing_name) do
         { "description" => "Thick Crust",
           "toppings"    => ["mushrooms", "corn husks"]}

@@ -39,7 +39,7 @@ RSpec.describe "Pizzas", :type => :request do
   end
 
   describe "GET /pizzas/:id" do
-    it do
+    it 'returns a pizza' do
       post "/pizzas", pizza: attributes
       get  "/pizzas/#{JSON.parse(response.body)["id"]}"
       expect(JSON.parse(response.body)).to be == attributes.merge("id" => 1)
