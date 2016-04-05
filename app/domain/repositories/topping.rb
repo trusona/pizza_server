@@ -1,9 +1,7 @@
 module Repositories
   class Topping < Base
-
-    def self.create(attributes)
-      Models::Topping.new super
+    def self.model
+      Models::Topping
     end
-
   end
 end

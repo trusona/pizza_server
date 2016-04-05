@@ -22,10 +22,9 @@ module Cmd
         command_result = configured_command.call(args)
       rescue Validators::ValidationError => e
         errors = e.errors
-        command_result = {}
       end
 
-      Result.new result:  command_result,
+      Result.new result:  command_result || {},
                  errors:  errors,
                  success: errors.empty?
     end

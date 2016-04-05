@@ -1,5 +1,7 @@
 module Repositories
-  # Domain repositories have a CRUD+L (list) interfcace.
+  # Domain repositories have a CRUD+L (list) interfcace.  They are
+  # "in memory" adapters that simply wrap a hash with a CRUD interface
+  # Custom repositories should support this interface
 
   class Base
     @collection = {}
@@ -7,7 +9,7 @@ module Repositories
     class << self
       def create attributes
         next_id = @collection.keys.length + 1
-        @collection[next_id] = attributes.merge("id" => next_id)
+        @collection[next_id] = model.new(attributes.merge("id" => next_id))
       end
 
       def read id

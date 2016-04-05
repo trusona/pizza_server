@@ -13,6 +13,7 @@ module Models
       @toppings.map { |t| Topping.new(name: t).name }
     end
 
+    # Entity objects are equal if their ids are the same
     def == pizza
       @id == pizza.id
     end
