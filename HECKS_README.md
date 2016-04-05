@@ -1,3 +1,13 @@
+Benefits
+* Patterns
+* Scalability
+* Testability
+* Pluggability
+* Portability
+* Composability
+* Ruby/Rails friendly
+* Convention over configuration
+
 Hexagonal Architecture vs DDD
 * Related to DDD
 * No special libraries
