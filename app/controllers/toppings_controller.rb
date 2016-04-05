@@ -8,6 +8,7 @@ class ToppingsController < ApplicationController
   end
 
   def create
+
     Cmd[:create_topping].call(topping: topping_params) do |result|
       result.success do |topping|
         render json: topping
@@ -18,6 +19,6 @@ class ToppingsController < ApplicationController
   private
 
   def topping_params
-    params.require(:topping)
+    params.require(:topping).permit(:name)
   end
 end

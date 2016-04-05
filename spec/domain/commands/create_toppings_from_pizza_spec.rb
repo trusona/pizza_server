@@ -13,7 +13,7 @@ RSpec.describe Commands::CreateToppingsFromPizza do
     let(:pizza) { Commands::CreatePizza.new.call(pizza: attributes) }
 
     it 'adds the toppings from the pizza' do
-      expect(subject.call(pizza: pizza)).to be == ["mushrooms", "corn husks"]
+      expect(subject.call(pizza: pizza)).to eq ["mushrooms", "corn husks"]
     end
   end
 end

@@ -5,7 +5,7 @@ module Commands
     end
 
     def call id:
-      @repo.read id
+      @repo.read(id)
     end
   end
 end

@@ -11,7 +11,7 @@ module Commands
     private
 
     def toppings(pizza)
-      pizza['toppings'].map do |topping|
+      pizza.toppings.map do |topping|
         @repo.create name: topping
         topping
       end

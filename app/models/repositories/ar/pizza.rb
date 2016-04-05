@@ -7,7 +7,7 @@ module Repositories
 
       class << self
         def create attributes
-          Row.create!(attributes).attributes
+          Models::Pizza.new(Row.create!(attributes).attributes)
         end
 
         def read id

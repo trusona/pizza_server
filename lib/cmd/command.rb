@@ -20,7 +20,7 @@ module Cmd
 
       begin
         command_result = configured_command.call(args)
-      rescue => e
+      rescue Validators::ValidationError => e
         errors = e.errors
         command_result = {}
       end

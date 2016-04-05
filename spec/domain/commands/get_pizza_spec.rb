@@ -9,10 +9,10 @@ RSpec.describe Commands::GetPizza do
         "toppings"    => ["mushrooms", "corn husks"]}
     end
 
+    let (:pizza) { Commands::CreatePizza.new.call(pizza: attributes) }
+
     it 'get a pizza with an id' do
-      pizza = Commands::CreatePizza.new.call(pizza: attributes)
-      expect(Commands::GetPizza.new.call(id: pizza["id"]))
-        .to be == attributes.merge("id" => 1)
+      expect(Commands::GetPizza.new.call(id: pizza.id)).to be == pizza
     end
   end
 end
