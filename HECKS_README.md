@@ -1,23 +1,24 @@
 Benefits
-* Patterns
+* Ruby/Rails friendly
+* Patterns!
 * Scalability
 * Testability
 * Pluggability
 * Portability
 * Composability
-* Ruby/Rails friendly
 * Convention over configuration
 
 Hexagonal Architecture vs DDD
 * Related to DDD
 * No special libraries
+* Commands are dead!  Long live Commands!
 
 Commands
 * Result Object
 * In the controller
 * In tests
 
-Domain Models
+Domain Models (DDD?)
 * Entities
 * Values
 * Aggregates
