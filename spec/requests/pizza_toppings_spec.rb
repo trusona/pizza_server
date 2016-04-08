@@ -29,7 +29,7 @@ RSpec.describe "Pizza Toppings", :type => :request do
         post "/pizzas/#{pizza.id}/toppings", topping_id: topping.id
         expect(response.body).to be == {
           "object"=>{"id"=>nil, "pizza_id"=>pizza.id, "topping_id"=>topping.id},
-          "errors"=>{"pizza_topping": ["This pizza topping already exists"]}}.to_json
+          "errors"=>{"pizza_topping"=> ["This pizza topping already exists"]}}.to_json
       end
     end
   end
