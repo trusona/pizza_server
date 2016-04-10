@@ -51,8 +51,13 @@ Cmd
 Testing
 * Guard
 * Simple Cov
-* Test ratio
+* Great Test ratio
 
-TODO
-# Handle concurrent writes in Repositories::AR
-# Work with some Legacy code (Export Domain)
+
+FEEDBACK
+* Use existing libraries such as ROM, Dry
+* Show how to we handle a simple join/relationship (Demo: pizza.toppings.each)
+* Controller Action only running a single command
+* Handle concurrent writes in Repositories::AR
+* Work with some Legacy code (Export Domain?)
+* Show how to build with it (From story to implementation.  say oops a lot)
