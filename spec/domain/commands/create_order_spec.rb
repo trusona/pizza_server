@@ -11,7 +11,7 @@ RSpec.describe Commands::CreateOrder do
 
   describe '#call' do
     it 'creates an order' do
-      subject.call(order: { pizzas: [pizza] })
+      subject.call(order: { 'pizzas' => [pizza] })
     end
   end
 end
