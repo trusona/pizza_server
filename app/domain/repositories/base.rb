@@ -4,8 +4,6 @@ module Repositories
   # Custom repositories should support this interface
 
   class Base
-    @collection = {}
-
     class << self
       def create attributes
         next_id = @collection.keys.length + 1

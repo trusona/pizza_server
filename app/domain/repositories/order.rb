@@ -1,9 +1,9 @@
 module Repositories
-  class Pizza < Base
+  class Order < Base
   	@collection = {}
-    
+  
     def self.model
-      Models::Pizza
+      Models::Order
     end
   end
 end
