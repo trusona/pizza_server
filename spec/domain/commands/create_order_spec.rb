@@ -1,9 +1,8 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe Commands::CreateOrder do
   subject     { described_class.new }
-  let(:pizza) { Commands::CreatePizza.new.call(
-  	pizza: { 
+  let(:pizza) { Commands::CreatePizza.new.call(pizza: { 
       "name"        => "Sicilian",
       "description" => "Thick Crust",
       "toppings"    => ["mushrooms", "corn husks"]

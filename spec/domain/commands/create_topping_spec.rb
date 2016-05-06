@@ -1,4 +1,4 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe Commands::CreateTopping do
   let(:topping) { described_class.new.call(topping: { name: "Pepperoni" }) }

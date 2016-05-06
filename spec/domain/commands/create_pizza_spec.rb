@@ -1,4 +1,4 @@
-require "rails_helper"
+require "spec_helper"
 
 RSpec.describe Commands::CreatePizza do
   subject     { described_class.new }
