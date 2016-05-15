@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Models::Pizza do
   let(:pizza) do
@@ -6,7 +6,8 @@ RSpec.describe Models::Pizza do
       "id" => "yaya",
       "name" => "Sicillian",
       "description" => "A Roundish Pizza with sauce",
-      "toppings" => ["roots", "pig pieces"]
+      "toppings" => ["roots", "pig pieces"],
+      "price" => 5.00
     )
   end
 
@@ -24,5 +25,9 @@ RSpec.describe Models::Pizza do
 
   it 'has toppings' do
     expect(pizza.toppings).to eq ["roots", "pig pieces"]
+  end
+
+  it 'has a price' do
+    expect(pizza.price).to eq 5.00
   end
 end

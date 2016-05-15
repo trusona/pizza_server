@@ -5,8 +5,7 @@ RSpec.describe Commands::CreateOrder do
   let(:pizza) { Commands::CreatePizza.new.call(pizza: { 
       "name"        => "Sicilian",
       "description" => "Thick Crust",
-      "toppings"    => ["mushrooms", "corn husks"]
-  })}
+      "toppings"    => ["mushrooms", "corn husks"] })}
 
   describe '#call' do
     it 'creates an order' do

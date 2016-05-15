@@ -1,12 +1,13 @@
 module Models
   class Pizza
-    attr_reader :name, :description, :toppings, :id
+    attr_reader :name, :description, :toppings, :price, :id
 
     def initialize attributes = {}
       @name        = attributes['name']
       @description = attributes['description']
       @toppings    = attributes['toppings']
       @id          = attributes['id']
+      @price       = attributes['price']
     end
 
     def toppings
