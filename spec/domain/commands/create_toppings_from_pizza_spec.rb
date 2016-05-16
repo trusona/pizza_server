@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Commands::CreateToppingsFromPizza do
   subject { described_class.new }
@@ -7,6 +7,7 @@ RSpec.describe Commands::CreateToppingsFromPizza do
     let(:attributes) do
       { "name"        => "Sicilian",
         "description" => "Thick Crust",
+        "price"       => 5.0,
         "toppings"    => ["mushrooms", "corn husks"]}
     end
 

@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Commands::CreatePizza do
   subject     { described_class.new }
@@ -7,6 +7,7 @@ RSpec.describe Commands::CreatePizza do
     { 
       "name"        => "Sicilian",
       "description" => "Thick Crust",
+      "price"       => 5,
       "toppings"    => ["mushrooms", "corn husks"]
     }
   end
@@ -26,7 +27,7 @@ RSpec.describe Commands::CreatePizza do
       it 'blows up if a validation breaks' do
         expect { subject.call(pizza: attributes_with_missing_name) }
           .to raise_error(Validators::ValidationError) do |error|
-          expect(error.errors).to eq :name => ["can't be blank"]
+          expect(error.errors).to include :name => ["can't be blank"]
         end
       end
     end

@@ -30,6 +30,6 @@ class PizzasController < ApplicationController
   private
 
   def pizza_params
-    params.require(:pizza).permit(:name, :description, :toppings => [])
+    params.require(:pizza).permit(:name, :description, :price, :toppings => [])
   end
 end

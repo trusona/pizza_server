@@ -6,6 +6,7 @@ RSpec.describe Commands::GetOrder do
   	pizza: { 
       "name"        => "Sicilian",
       "description" => "Thick Crust",
+      'price'       => 5.0,
       "toppings"    => ["mushrooms", "corn husks"]
   })}
   

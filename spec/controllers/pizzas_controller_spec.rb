@@ -4,6 +4,7 @@ RSpec.describe "Pizzas", :type => :request do
   let(:attributes) {
     { "name"        => "Belleboche",
       "description" => "Pepperoni, Mushroom, Sausage",
+      "price"       => '5.0',
       "toppings"    => ['a', 'b', 'c']} }
 
   describe "GET /pizzas" do
@@ -24,6 +25,7 @@ RSpec.describe "Pizzas", :type => :request do
     context 'with errors' do
       let(:attributes_no_name) {
         { "description" => "Pepperoni, Mushroom, Sausage",
+          "price"       => 5.0,
           "toppings"    => ['a', 'b', 'c']} }
 
       it 'Returns a 500' do
