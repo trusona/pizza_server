@@ -5,7 +5,7 @@ module Commands
     end
 
     def call **args
-      @repo.all
+      @repo.list
     end
   end
 end

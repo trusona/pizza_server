@@ -14,7 +14,7 @@ module Repositories
           Row.find id
         end
 
-        def all
+        def list
           Row.all
         end
       end
