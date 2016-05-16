@@ -19,3 +19,5 @@ module Cmd
     Command.new(name: command_name, config: @config)
   end
 end
+
+require Rails.root.join('Cmdfile').to_s
