@@ -15,7 +15,7 @@ module Repositories
         end
 
         def list
-          Row.all
+          Row.all.map {|row| Models::Pizza.new(row.attributes)}
         end
       end
     end

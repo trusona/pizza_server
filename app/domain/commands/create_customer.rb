@@ -1,7 +1,11 @@
 module Commands
   class CreateCustomer
+  	def initialize repo: Repositories::Customer
+  	  @repo = repo
+  	end
+
   	def call customer:
-  	  Repositories::Customer.create customer
+  	  @repo.create customer
   	end
   end
 end

@@ -8,9 +8,13 @@ RSpec.describe Commands::CreateOrder do
       "price"       => 5.0,
       "toppings"    => ["mushrooms", "corn husks"] })}
 
+  let(:customer) do
+    Commands::CreateCustomer.new.call(customer: { 'first_name' => 'Chris', 'last_name' => 'Young' })
+  end
+
   describe '#call' do
     it 'creates an order' do
-      subject.call(order: { 'pizzas' => [pizza] })
+      subject.call(order: { 'pizzas' => [pizza], 'customer' => customer })
     end
   end
 end

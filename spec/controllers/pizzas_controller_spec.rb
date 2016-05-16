@@ -35,7 +35,7 @@ RSpec.describe "Pizzas", :type => :request do
 
       it 'Has errors in the body' do
         post "/pizzas", pizza: attributes_no_name
-        expect(JSON.parse(response.body)).to eq "name"=>["can't be blank"]
+        expect(JSON.parse(response.body)).to eq "name" => ["can't be blank"]
       end
     end
   end

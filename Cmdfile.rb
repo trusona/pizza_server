@@ -1,4 +1,3 @@
-
 Cmd.config do |config|
   PIZZA_COMMANDS   = [
   	:create_pizza, 
