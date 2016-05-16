@@ -11,11 +11,5 @@ module Cmd
     def initialize
       @commands = {}
     end
-
-    private
-
-    def klass command
-      "Commands::#{command.to_s.camelize}".constantize
-    end
   end
 end
