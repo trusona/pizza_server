@@ -7,5 +7,9 @@ module Models
       @last_name = attributes['last_name']
       @id = attributes['id']
     end
+
+    def == customer
+      @id == customer.id
+    end
   end
 end

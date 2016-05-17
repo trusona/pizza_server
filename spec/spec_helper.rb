@@ -64,6 +64,8 @@ RSpec.configure do |config|
   config.around(:each) do |example|
     Repositories::Pizza.reset
     Repositories::Topping.reset
+    Repositories::Order.reset
+    Repositories::Customer.reset
 
     DatabaseCleaner[:active_record].cleaning do
       example.run

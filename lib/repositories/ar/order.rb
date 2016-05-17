@@ -11,15 +11,24 @@ module Repositories
         def create attributes
           customer = attributes.delete('customer')
           row      = Row.create!(attributes.merge(customer_id: customer.id))
-          Models::Order.new(row.attributes)
+          Factory.call(row)
         end
 
         def read id
-          Models::Order.new(Row.find(id).attributes)
+          Factory.call(Row.find(id))
         end
 
         def list
-          Row.all.map {|row| Models::Order.new(row.attributes)}
+          Row.all.map {|row| Factory.call(row) }
+        end
+      end
+
+      class Factory
+        class << self
+          def call(ar_model)
+            customer = AR::Customer.read(ar_model.customer_id)
+            Models::Order.new(ar_model.attributes.merge('customer' => customer))
+          end
         end
       end
     end
