@@ -16,7 +16,7 @@ RSpec.describe Models::Order do
   end
 
   it 'has order items' do
-    subject.add_item(pizza: pizza, quantity: 1)
+    subject.add_item(pizza: pizza, quantity: 1, price: 5.00)
     expect(subject.items.first.pizza).to eq pizza
   end
 end

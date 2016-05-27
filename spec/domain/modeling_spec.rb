@@ -11,19 +11,19 @@ RSpec.describe "Modeling" do
 	let(:get_orders)      { Commands::GetOrders.new(repo: order_repo) }
 
 	describe 'in memory' do
-		let(:pizza_repo)      { Repositories::Pizza }
-		let(:customer_repo)   { Repositories::Customer }
-		let(:order_repo)      { Repositories::Order }
+		let(:pizza_repo)    { Repositories::Pizza }
+		let(:customer_repo) { Repositories::Customer }
+		let(:order_repo)    { Repositories::Order }
 
-		it { playground }  
+		# it { playground }
 	end
 
 	describe 'active record' do
-		let(:pizza_repo)      { Repositories::AR::Pizza }
-		let(:customer_repo)   { Repositories::AR::Customer }
-		let(:order_repo)      { Repositories::AR::Order }
+		let(:pizza_repo)    { Repositories::AR::Pizza }
+		let(:customer_repo) { Repositories::AR::Customer }
+		let(:order_repo)    { Repositories::AR::Order }
 
-		it { playground }  
+		it { playground }
 	end
 
 	private 
@@ -35,9 +35,13 @@ RSpec.describe "Modeling" do
 		expect(get_pizzas.call).to eq [pizza]
 		customer = create_customer.call(customer: {'first_name' => 'Chris', 'last_name' => 'Young'})
 		expect(get_customers.call).to be == [customer]
-		order = create_order.call(order: { 'pizzas' => [pizza], 'customer' =>  customer})
+		
+		order = create_order.call(order: { 'items' => [{ pizza: pizza, quantity: 5, price: 4.0 }], 'customer' =>  customer})
+		
 		expect(order.id).to_not be_nil
+		
 		expect(order.customer).to eq customer
+
 		order = get_order.call(order.id)
 		expect(order.customer).to eq customer
 		orders = get_orders.call

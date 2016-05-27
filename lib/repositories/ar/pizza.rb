@@ -1,21 +1,17 @@
 module Repositories
   module AR
     class Pizza
-      class Row < ActiveRecord::Base
-        self.table_name = "pizzas"
-      end
-
       class << self
         def create attributes
-          Models::Pizza.new(Row.create!(attributes).attributes)
+          Repositories::AR::Models::Pizza.create! attributes
         end
 
         def read id
-          Row.find id
+          Repositories::AR::Models::Pizza.find id
         end
 
         def list
-          Row.all.map {|row| Models::Pizza.new(row.attributes)}
+          Repositories::AR::Models::Pizza.all
         end
       end
     end

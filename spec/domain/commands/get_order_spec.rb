@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Commands::GetOrder do
   subject { described_class.new }
@@ -11,7 +11,7 @@ RSpec.describe Commands::GetOrder do
   })}
   
   let(:order_attributes) {
-  	{ 'pizzas' => [pizza] }
+    { 'items' => [Models::OrderItem.new(pizza: pizza, quantity: 5, price: 4.0)] }
   }
 
   let(:order) { Commands::CreateOrder.new.call(order: order_attributes) }

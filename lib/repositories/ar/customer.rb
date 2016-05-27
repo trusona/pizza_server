@@ -1,21 +1,17 @@
 module Repositories
   module AR
     class Customer
-      class Row < ActiveRecord::Base
-        self.table_name = "customers"
-      end
-
       class << self
         def create attributes
-          Models::Customer.new(Row.create!(attributes).attributes)
+          AR::Models::Customer.create!(attributes)
         end
 
         def read id
-          Models::Customer.new(Row.find(id).attributes)
+          AR::Models::Customer.find(id)
         end
 
         def list
-          Row.all.map {|row| Models::Customer.new(row.attributes)}
+          Models::Customer.all
         end
       end
     end
