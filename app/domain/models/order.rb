@@ -3,15 +3,20 @@ module Models
   	attr_reader :id, :items, :customer
     
     def initialize attributes = {}
-      @items    = attributes['items']
+      @items = []
+
+      if attributes['items']
+        @items = attributes['items'].map { |order_item_attributes|
+          add_item(order_item_attributes)
+        }
+      end
       @id       = attributes['id']
       @customer = attributes['customer']
-      @items    = []
     end
 
 
-    def add_item pizza:, quantity:, price:
-      @items << OrderItem.new(pizza: pizza, quantity: quantity, price: price)
+    def add_item attributes = {}
+      @items << OrderItem.new(attributes)
       @items.last
     end
 

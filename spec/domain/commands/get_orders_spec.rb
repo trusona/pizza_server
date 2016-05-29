@@ -11,7 +11,7 @@ RSpec.describe Commands::GetOrders do
   })}
   
   let(:order_attributes) {
-  	{ 'items' => [Models::OrderItem.new(pizza: pizza, quantity: 5, price: 3.0)] }
+  	{ 'items' => [{'pizza' => pizza, 'quantity' => 5, 'price' => 3.0}] }
   }
 
   let!(:order) { Commands::CreateOrder.new.call(order: order_attributes) }

@@ -1,7 +1,13 @@
 require "rails_helper"
 
 RSpec.describe Models::Order do
-  subject { described_class.new({ 'items' => [pizza], 'customer' => customer})}
+  subject { described_class.new({ 
+    'items' => [
+      {
+        'pizza'    => pizza, 
+        'quantity' => 4, 
+        'price'    => 3.0}],
+    'customer' => customer})}
   
   let(:pizza) do
     Models::Pizza.new(
@@ -12,7 +18,9 @@ RSpec.describe Models::Order do
   end
 
   let(:customer) do
-    Models::Customer.new({ 'first_name' => 'Chris', 'last_name' => 'Young' })
+    Models::Customer.new({ 
+      'first_name' => 'Chris', 
+      'last_name' => 'Young' })
   end
 
   it 'has order items' do

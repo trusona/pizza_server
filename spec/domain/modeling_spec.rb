@@ -15,7 +15,7 @@ RSpec.describe "Modeling" do
 		let(:customer_repo) { Repositories::Customer }
 		let(:order_repo)    { Repositories::Order }
 
-		# it { playground }
+		it { playground }
 	end
 
 	describe 'active record' do
