@@ -3,11 +3,11 @@ module Repositories
     class Customer
       class << self
         def create attributes
-          AR::Models::Customer.create!(attributes)
+          Models::Customer.create!(attributes)
         end
 
         def read id
-          AR::Models::Customer.find(id)
+          Models::Customer.find(id)
         end
 
         def list
