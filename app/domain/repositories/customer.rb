@@ -15,7 +15,7 @@ module Repositories
       # NOT IMPLEMENTED
     end
 
-    def self.delete(id)
+    def self.delete id
       # NOT IMPLEMENTED
     end
 

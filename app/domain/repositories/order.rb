@@ -4,7 +4,8 @@ module Repositories
   
     def self.create attributes
       next_id = @collection.keys.length + 1
-      @collection[next_id] = Models::Order.new(attributes.merge("id" => next_id))
+      @collection[next_id] = 
+        Models::Order.new(attributes.merge("id" => next_id))
     end
 
     def self.read id

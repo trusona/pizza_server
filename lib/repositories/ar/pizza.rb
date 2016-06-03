@@ -2,16 +2,23 @@ module Repositories
   module AR
     class Pizza
       class << self
+        MODEL = Repositories::AR::Models::Pizza
         def create attributes
-          Repositories::AR::Models::Pizza.create! attributes
+          MODEL.create! attributes
         end
 
         def read id
-          Repositories::AR::Models::Pizza.find id
+          MODEL.find id
         end
 
         def list
-          Repositories::AR::Models::Pizza.all
+          MODEL.all
+        end
+
+        def update id, attributes
+          order = MODEL.find id
+          order.update attributes
+          order
         end
       end
     end

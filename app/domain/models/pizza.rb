@@ -1,6 +1,7 @@
 module Models
   class Pizza
     attr_reader :name, :description, :toppings, :price, :id
+    attr_writer :price
 
     def initialize attributes = {}
       @name        = attributes['name']

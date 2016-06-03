@@ -2,7 +2,9 @@ require "rails_helper"
 
 RSpec.describe Commands::CreatePizza do
   subject     { described_class.new }
+  
   let(:pizza) { subject.call(pizza: attributes) }
+  
   let(:attributes) do
     { 
       "name"        => "Sicilian",
@@ -11,6 +13,7 @@ RSpec.describe Commands::CreatePizza do
       "toppings"    => ["mushrooms", "corn husks"]
     }
   end
+
   let(:attributes_with_missing_name) do
     { 
       "description" => "Thick Crust",

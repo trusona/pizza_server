@@ -1,21 +1,24 @@
 module Repositories
   module AR
     class Order
+      ORDER_MODEL      = Repositories::AR::Models::Order
+      ORDER_ITEM_MODEL = Repositories::AR::Models::OrderItem
+      
       class << self
         def create attributes
           customer = attributes.delete('customer')
           items = attributes.delete('items').map do |attributes| 
-            Repositories::AR::Models::OrderItem.new(attributes)
+            ORDER_ITEM_MODEL.new(attributes)
           end
-          Repositories::AR::Models::Order.create!(attributes.merge(customer_id: customer.id, items: items))
+          ORDER_MODEL.create! attributes.merge(customer_id: customer.id, items: items)
         end
 
         def read id
-          Repositories::AR::Models::Order.find(id)
+          ORDER_MODEL.find(id)
         end
 
         def list
-          Repositories::AR::Models::Order.all
+          ORDER_MODEL.all
         end
       end
     end

@@ -12,7 +12,13 @@ module Repositories
     end
 
     def self.update id, attributes
-      # NOT IMPLEMENTED
+      pizza = @collection[id]
+
+      attributes.each do |key, value|
+        pizza.send("#{key}=", value)
+      end
+
+      pizza
     end
 
     def self.delete(id)
