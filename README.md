@@ -3,7 +3,6 @@
 We want to build a pizza from a list of ingredients.  The Pizza will have a name,
 a description, and toppings.
 
-
 Requirements
 ============
 
@@ -18,12 +17,31 @@ you feel comfortable with.
   * As a builder, I should be able to list toppings on a pizza
 
 **Once you have a client built.  Deploy it some where and send the url to use it to
-[dev@tanga.com](dev@tanga.com).**
+[devprojects@trusona.com](mailto:devprojects@trusona.com).**
+
+Resources Server
+================
+For development and testing, you can run Docker containers for the database and the web services.
+
+To get Docker for your development environment, start here http://docs.docker.com. If you are running _Mac OS X_ or _Windows_, installing the Docker Toolbox is the quickest way to get going.
+
+With Docker ready to go, you can now clone this project.
+
+Within the cloned project folder, simply run:
+
+```
+docker-compose up
+```
+
+This starts the database and web service containers. Once they are ready, you will need the IP address of the Docker machine. Get that by running:
+
+```
+docker-machine ip
+```
 
 Resources
 =========
-Use these resources to build your client.  The server with these resources can
-be accessed at *https://pizzaserver.herokuapp.com/*
+Use these resources to build your client.  
 
 ```
 GET  toppings               # List toppings
@@ -36,7 +54,7 @@ POST pizzas/:id/toppings    # Add a topping to an existing pizza
 
 *Example curl command to create a pizza:*
 ```
-curl -H "Content-Type: application/json" -H "Accept: application/json" https://pizzaserver.herokuapp.com/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
+curl -H "Content-Type: application/json" -H "Accept: application/json" https://{you docker machines IP}:3000/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
 ```
 
 Pizza
