@@ -1,11 +1,11 @@
-default: &default
+development: &default
   adapter: postgresql
-  pool: 5
-  timeout: 5000
-
-development:
-  <<: *default
+  encoding: unicode
   database: pizza_server_development
+  pool: 5
+  username: postgres
+  password:
+  host: db
 
 test:
   <<: *default

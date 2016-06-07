@@ -1,0 +1,10 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    image: trusona/pizza-server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
