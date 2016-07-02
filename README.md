@@ -23,7 +23,7 @@ Resources Server
 ================
 For development and testing, you can run Docker containers for the database and the web services.
 
-To get Docker for your development environment, start here http://docs.docker.com. If you are running _Mac OS X_ or _Windows_, installing the Docker Toolbox is the quickest way to get going.
+To get Docker for your development environment, start here https://www.docker.com/products/docker-toolbox. If you are running _Mac OS X_ or _Windows_, installing the Docker Toolbox is the quickest way to get going. If you don't use the Docker Toolbox, you will need to have a similar Docker setup that has the Docker Client, Machine, and Compose.
 
 With Docker ready to go, you can now clone this project.
 
