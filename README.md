@@ -27,15 +27,15 @@ To get Docker for your development environment, start here https://www.docker.co
 
 With Docker ready to go, you can now clone this project.
 
-Launch the _Docker Quickstart Terminal_ and navigate to the cloned project folder, simply run:
+Launch the _Docker Quickstart Terminal_ and navigate to the cloned project folder. Within the project folder simply run:
 
-```
+```bash
 docker-compose up
 ```
 
 This starts the database and web service containers. Once they are ready, you will need the IP address of the Docker machine. Get that by running:
 
-```
+```bash
 docker-machine ip
 ```
 
@@ -43,7 +43,7 @@ Resources
 =========
 Use these resources to build your client.  
 
-```
+```bash
 GET  toppings               # List toppings
 POST toppings               # Create a topping
 GET  pizzas                 # List pizzas
@@ -52,9 +52,14 @@ GET  pizzas/:id/toppings    # List toppings associated with a pizza
 POST pizzas/:id/toppings    # Add a topping to an existing pizza
 ```
 
-*Example curl command to create a pizza:*
+*Example curl command to get the toppings:*
+```bash
+curl http://{your docker machines IP}:3000/toppings 
 ```
-curl -H "Content-Type: application/json" -H "Accept: application/json" http://{you docker machines IP}:3000/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
+
+*Example curl command to create a pizza:*
+```bash
+curl -H "Content-Type: application/json" -H "Accept: application/json" http://{your docker machines IP}:3000/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
 ```
 
 Pizza
@@ -62,10 +67,10 @@ Pizza
 A Pizza is a baked, round piece of dough covered with sauce and toppings
 
 #### Examples:
-```
+```bash
 POST /pizzas, {"pizza" => {"name" => "Belleboche", "description" => "Pepperoni, Mushroom and Sausage"}}
 ```
-```
+```bash
 GET  /pizzas
 ```
 
@@ -74,10 +79,10 @@ Topping
 Raw ingredients that can be added to a pizza
 
 #### Examples:
-```
+```bash
 POST /toppings, {topping: {name: "Pepperoni"}}
 ```
-```
+```bash
 GET  /toppings
 ```
 
@@ -87,9 +92,9 @@ Pizza Toppings are Toppings that have been added to a Pizza
 
 #### Examples:
 
-```
+```bash
 POST /pizzas/:pizza_id/toppings, {topping_id: 1}
 ```
-```
+```bash
 GET  /pizzas/:pizza_id/toppings
 ```
