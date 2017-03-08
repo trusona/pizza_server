@@ -27,7 +27,7 @@ To get Docker for your development environment, start here https://www.docker.co
 
 With Docker ready to go, you can now clone this project.
 
-Within the cloned project folder, simply run:
+Launch the _Docker Quickstart Terminal_ and navigate to the cloned project folder, simply run:
 
 ```
 docker-compose up
