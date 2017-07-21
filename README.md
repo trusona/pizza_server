@@ -16,7 +16,7 @@ you feel comfortable with.
   * As a builder, I should be able to add a topping to a pizza
   * As a builder, I should be able to list toppings on a pizza
 
-**Once you have a client built.  Deploy it some where and send the url to use it to
+**Once you have a client built, deploy the source somewhere online (e.g. Github) and send us the URL at
 [devprojects@trusona.com](mailto:devprojects@trusona.com).**
 
 Resources Server
