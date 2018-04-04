@@ -23,11 +23,11 @@ Resources Server
 ================
 For development and testing, you can run Docker containers for the database and the web services.
 
-To get Docker for your development environment, start here https://www.docker.com/products/docker-toolbox. If you are running _Mac OS X_ or _Windows_, installing the Docker Toolbox is the quickest way to get going. If you don't use the Docker Toolbox, you will need to have a similar Docker setup that has the Docker Client, Machine, and Compose.
+To get Docker for your development environment, start here [https://www.docker.com/community-edition](). If you are installing docker in an environment other than [Mac](https://docs.docker.com/docker-for-mac/install/) or [Windows](https://docs.docker.com/docker-for-windows/install/), be sure you also install [Docker Compose](https://docs.docker.com/compose/install/).
 
 With Docker ready to go, you can now clone this project.
 
-Launch the _Docker Quickstart Terminal_ and navigate to the cloned project folder. Within the project folder simply run:
+Launch a terminal session and run the following within the cloned projects root:
 
 ```bash
 docker-compose up
@@ -36,8 +36,16 @@ docker-compose up
 This starts the database and web service containers. Once they are ready, you will need the IP address of the Docker machine. Get that by running:
 
 ```bash
-docker-machine ip
+docker-compose ps
 ```
+
+Look for the pizzaserver_web line:
+
+```bash
+pizzaserver_web_1   /bin/sh -c ./bootstrap.sh   Up      0.0.0.0:3000->3000/tcp
+```
+
+In the example above and the examples below the ip address is `0.0.0.0`. Be sure to replace them with the ip address your docker container is actually using.
 
 Resources
 =========
@@ -54,12 +62,12 @@ POST pizzas/:id/toppings    # Add a topping to an existing pizza
 
 *Example curl command to get the toppings:*
 ```bash
-curl http://{your docker machines IP}:3000/toppings 
+curl http://0.0.0.0:3000/toppings 
 ```
 
 *Example curl command to create a pizza:*
 ```bash
-curl -H "Content-Type: application/json" -H "Accept: application/json" http://{your docker machines IP}:3000/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
+curl -H "Content-Type: application/json" -H "Accept: application/json" http://0.0.0.0:3000/pizzas --data '{"pizza": {"name": "belleboche", "description": "Pepperoni, Sausage, Mushroom"}}'
 ```
 
 Pizza
