@@ -23,7 +23,7 @@ Resources Server
 ================
 For development and testing, you can run Docker containers for the database and the web services.
 
-To get Docker for your development environment, start here [https://www.docker.com/community-edition](). If you are installing docker in an environment other than [Mac](https://docs.docker.com/docker-for-mac/install/) or [Windows](https://docs.docker.com/docker-for-windows/install/), be sure you also install [Docker Compose](https://docs.docker.com/compose/install/).
+To get Docker for your development environment, start here [https://www.docker.com/community-edition](https://www.docker.com/community-edition). If you are installing docker in an environment other than [Mac](https://docs.docker.com/docker-for-mac/install/) or [Windows](https://docs.docker.com/docker-for-windows/install/), be sure you also install [Docker Compose](https://docs.docker.com/compose/install/).
 
 With Docker ready to go, you can now clone this project.
 
