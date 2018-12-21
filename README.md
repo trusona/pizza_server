@@ -6,15 +6,19 @@ a description, and toppings.
 Requirements
 ============
 
-Please build a client that will cover these stories, you can use any technology
-you feel comfortable with.
+Please build a client that will meet the following acceptance criteria:
 
-  * As a builder, I should be able to list existing Pizzas
-  * As a builder, I should be able to create a new Pizza
-  * As a builder, I should be able to create toppings that can be added to a Pizza
-  * As a builder, I should be able to list the toppings I can to add to a Pizza
-  * As a builder, I should be able to add a topping to a pizza
-  * As a builder, I should be able to list toppings on a pizza
+  * As a pizza client user, I should be able to list existing pizzas.
+  * As a pizza client user, I should be able to create a new pizza.
+  * As a pizza client user, I should be able to create toppings that can be added to a pizza.
+  * As a pizza client user, I should be able to list the toppings I can to add to a pizza.
+  * As a pizza client user, I should be able to add a topping to a pizza.
+  * As a pizza client user, I should be able to list toppings on a pizza.
+  
+Additionally:
+
+  * All coding must be done using TDD following [The Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
+  * Code can be written using the language and environment you feel will best represent yourself to the reviewers.
 
 **Once you have a client built, deploy the source somewhere online (e.g. Github) and send us the URL at
 [devprojects@trusona.com](mailto:devprojects@trusona.com).**
