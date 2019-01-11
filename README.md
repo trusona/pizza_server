@@ -17,7 +17,7 @@ Please build a client that will meet the following acceptance criteria:
   
 Additionally:
 
-  * All coding must be done using TDD following [The Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
+  * All coding *must* be done using TDD following [The Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
   * Code can be written using the language and environment you feel will best represent yourself to the reviewers.
 
 **Once you have a client built, deploy the source somewhere online (e.g. Github) and send us the URL at
